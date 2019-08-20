@@ -1,0 +1,5 @@
+django-crispy-forms>=1.7.2
+djongo==1.2.33
+Django>=2.0,<3.0
+Pillow>=2.2.1
+django-jenkins==0.110.0

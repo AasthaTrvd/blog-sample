@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags%}
+{% block content %}
+<div class='mt-5 border w-50 mx-auto'>
+    <div class="media">
+        <img class="mr-3 img-thumbnail w-25 h-25" src="{{ user.profile.image.url}}" alt="Generic placeholder image">
+        <div class="media-body">
+            <h5 class="mt-0 ml-3">{{user.username}}</h5>
+            <p class="ml-3">{{ user.email}}</p>
+        </div>
+    </div>
+</div>
+<div class='mt-5 broder w-50 mx-auto'>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="media border p-3">
+            <div class="media-body">
+                <legend>Update Profile Info</legend>
+                <hr>
+                {% csrf_token %}
+                {{ user_form | crispy }}
+                {{ profile_form | crispy }}
+                <button class='btn btn-secondary btn-block'>Update</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
